@@ -35,7 +35,7 @@ namespace EstateApp.Web.Controllers
         {
             if(!ModelState.IsValid) return View();
             try
-            {
+            {   
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
                 if(!result.Succeeded)
                 {
