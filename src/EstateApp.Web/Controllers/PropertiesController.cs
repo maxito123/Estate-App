@@ -17,7 +17,8 @@ namespace EstateApp.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var properties = _propertyService.GetAllProperties();
+            return View(properties);
         }
         [HttpGet]
         public IActionResult Add()

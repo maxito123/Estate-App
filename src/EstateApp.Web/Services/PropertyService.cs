@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.Threading.Tasks;
 using EstateApp.Data.DatabaseContexts.ApplicationDbContext;
@@ -13,7 +14,12 @@ namespace EstateApp.Web.Services
         public PropertyService(ApplicationDbContext dbContext)
         {
            _dbContext = dbContext; 
-        }         public async Task AddProperty(PropertyModel model)
+        }         
+        public IEnumerable<Property> GetAllProperties()
+        {
+            return _dbContext.Properties;
+        }
+        public async Task AddProperty(PropertyModel model)
         {
             var property = new Property
             {
